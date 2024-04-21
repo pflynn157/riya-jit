@@ -6,9 +6,9 @@
 // The debug function for printing Riya IR instructions
 //
 // Operands
-void ry_debug_operand(ry_kind type, int value, char *label) {
+void ry_debug_operand(ry_kind type, uint64_t value, char *label) {
     switch (type) {
-        case k_imm: printf("#%d", value); break;
+        case k_imm: printf("#%x", value); break;
         case k_mem: printf("[%d]", value); break;
         case k_loc: printf("%s", label); break;
         case k_reg: printf("r%d", value); break;
@@ -42,8 +42,9 @@ void ry_debug_stmt(ry_stmt *stmt) {
         case k_ble: break;
         
         case k_ret: printf("ret"); break;
+        case k_ret_void: printf("ret.void"); break;
         case k_call: break;
-        case k_syscall: break;
+        case k_syscall: printf("syscall"); break;
         
         default: printf("<unk_instr>");
     }
@@ -70,17 +71,20 @@ void ry_debug_stmt(ry_stmt *stmt) {
     }
     
     // Print type
-    printf("as ");
-    
-    switch (stmt->type) {
-        case t_m1: printf("m1"); break;
-        case t_m2: printf("m2"); break;
-        case t_m4: printf("m4"); break;
-        case t_m8: printf("m8"); break;
-        case t_ptr: printf("ptr"); break;
-        case t_f32: printf("f32"); break;
-        case t_f64: printf("f64"); break;
-        default: printf("<unk_type>");
+    if (stmt->type != t_void) {
+        printf("as ");
+        
+        switch (stmt->type) {
+            case t_void: printf(""); break;
+            case t_m1: printf("m1"); break;
+            case t_m2: printf("m2"); break;
+            case t_m4: printf("m4"); break;
+            case t_m8: printf("m8"); break;
+            case t_ptr: printf("ptr"); break;
+            case t_f32: printf("f32"); break;
+            case t_f64: printf("f64"); break;
+            default: printf("<unk_type>");
+        }
     }
     
     printf("\n");

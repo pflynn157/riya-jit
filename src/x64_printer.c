@@ -37,7 +37,7 @@ void x64_generate_function(FILE *file, char *name) {
 //
 // Generates a statement
 //
-void x64_generate_operand(FILE *file, ry_kind data_type, ry_kind type, int value, char *label) {
+void x64_generate_operand(FILE *file, ry_kind data_type, ry_kind type, uint64_t value, char *label) {
     char *reg32[] = {
         "eax", "ebx", "ecx", "edx", "edi", "esi",
         "r8d", "r9d", "r10d", "r11d", "r12d", "r13d", "r14d", "r15d"

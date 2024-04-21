@@ -12,6 +12,10 @@ typedef struct {
     uint8_t *memory;
     int memory_size;
     int memory_index;
+    
+    uint8_t *data;
+    int data_size;
+    int data_index;
 } eng_context;
 
 eng_context *eng_init();
