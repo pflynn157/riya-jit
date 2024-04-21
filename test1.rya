@@ -1,0 +1,7 @@
+func main is
+begin
+    li 10 to r0 as m4
+    li 20 to r1 as m4
+    add r0 r1 to r2 as m4
+    ret r2 as m4
+end
