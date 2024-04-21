@@ -3,6 +3,7 @@
 #include "ir.h"
 #include "asm_printer.h"
 #include "jit.h"
+#include "lex.h"
 
 void test1() {
     // li 10 to r0 as m4
@@ -123,7 +124,7 @@ void test2() {
 }
 
 int main(int argc, char *argv[]) {
-    test2();
+    
     return 0;
 }
 
