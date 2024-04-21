@@ -2,6 +2,7 @@
 
 #include "ir.h"
 #include "asm_printer.h"
+#include "jit.h"
 
 int main(int argc, char *argv[]) {
     // li 10 to r0 as m4
@@ -38,6 +39,12 @@ int main(int argc, char *argv[]) {
     x64_generate_stmt(f, &instr3);
     x64_generate_stmt(f, &instr4);
     x64_close(f);
+    
+    // Test JIT
+    puts("----------------------");
+    
+    eng_context *ctx = eng_init();
+    eng_run(ctx);
     
     return 0;
 }
