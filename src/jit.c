@@ -14,6 +14,16 @@ eng_context *eng_init() {
 }
 
 //
+// Perform a hexdump of the JIT memory
+//
+void eng_dump(eng_context *ctx) {
+    for (int i = 0; i<ctx->memory_index; i++) {
+        printf("%x ", ctx->memory[i]);
+    }
+    printf("\n");
+}
+
+//
 // Run the JIT engine
 //
 void eng_run(eng_context *ctx) {

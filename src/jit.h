@@ -15,5 +15,9 @@ typedef struct {
 } eng_context;
 
 eng_context *eng_init();
+void eng_dump(eng_context *ctx);
 void eng_run(eng_context *ctx);
+
+// Assembly functions for x86-64
+void x64_asm_stmt(eng_context *ctx, ry_stmt *stmt);
 

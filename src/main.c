@@ -44,6 +44,11 @@ int main(int argc, char *argv[]) {
     puts("----------------------");
     
     eng_context *ctx = eng_init();
+    x64_asm_stmt(ctx, &instr1);
+    x64_asm_stmt(ctx, &instr2);
+    x64_asm_stmt(ctx, &instr3);
+    x64_asm_stmt(ctx, &instr4);
+    eng_dump(ctx);
     eng_run(ctx);
     
     return 0;
